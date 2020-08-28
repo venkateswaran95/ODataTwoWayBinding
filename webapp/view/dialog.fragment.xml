@@ -1,0 +1,20 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form">
+	
+	<Dialog id="employeeDialog" title="Employee CRUD">
+		<f:SimpleForm>
+			<Label text="Name"/>
+			<Input id="EmpId" value="{Name}"/>
+			<Label text="Mobile Number" />
+			<Input id="EmpName" value="{Mobile}" maxLength="10"/>
+			<Label text="Email"/>
+			<Input id="EmpAddr" value="{Email}" />
+		</f:SimpleForm>
+		<Toolbar>
+			<ToolbarSpacer/>
+			<Button id="SaveCreate" text="Save"/>
+			<Button id="SaveEdit" text="Save Edit"/>
+			<Button id="CancelButton" text="Cancel" />
+		</Toolbar>
+	</Dialog>
+	
+</core:FragmentDefinition>

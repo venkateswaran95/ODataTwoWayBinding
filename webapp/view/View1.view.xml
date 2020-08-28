@@ -1,0 +1,48 @@
+<mvc:View controllerName="SAPUI5_P2.controller.View1" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true" xmlns="sap.m">
+	<App>
+		<pages>
+			<Page title="{i18n>title}">
+				<content>
+					<Table noDataText="No data" id="idTable" items="{path:'/EmployeeSetSet'}">
+						<items>
+							<ColumnListItem type="Navigation" press="onItemPress">
+								<cells>
+									<Text text="{Name}"/>
+									<Text text="{Mobile}"/>
+									<Text text="{Email}"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+						<columns>
+							<Column id="EmpIdCol">
+								<header>
+									<Label text="Employee Name"/>
+								</header>
+							</Column>
+							<Column id="EmpNameCol">
+								<header>
+									<Label text="Mobile"/>
+								</header>
+							</Column>
+							<Column id="EmpAddrCol">
+								<header>
+									<Label text="Email"/>
+								</header>
+							</Column>
+						</columns>
+					</Table>
+				</content>
+				<footer>
+					<Bar>
+						<contentRight>
+							<Button icon="sap-icon://create" text="Create" press="onCreate"/>
+							<Button icon="sap-icon://edit" text="Edit" press="onEdit"/>
+							<Button icon="sap-icon://delete" text="Delete" press="onDelete"/>
+						</contentRight>
+					</Bar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
