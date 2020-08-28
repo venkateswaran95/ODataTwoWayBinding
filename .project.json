@@ -17,7 +17,12 @@
     {
       "templateId": "servicecatalog.connectivityComponent",
       "templateVersion": "0.0.0",
-      "dateTimeStamp": "Sun, 16 Aug 2020 13:07:00 GMT"
+      "dateTimeStamp": "Sun, 30 Aug 2020 06:05:25 GMT"
+    },
+    {
+      "templateId": "ui5template.basicSAPUI5ApplicationComponent",
+      "templateVersion": "1.4.0",
+      "dateTimeStamp": "Fri, 28 Aug 2020 10:41:36 GMT"
     }
   ],
   "translation": {
@@ -47,7 +52,7 @@
     "excludedFiles": []
   },
   "mockpreview": {
-    "mockUri": "/sap/opu/odata/sap/ZODATA_P_SRV",
+    "mockUri": "/sap/opu/odata/sap/ZMATERIALMASTER_CDS",
     "metadataFilePath": "",
     "loadJSONFiles": false,
     "loadCustomRequests": false,

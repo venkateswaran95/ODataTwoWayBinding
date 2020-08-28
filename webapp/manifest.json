@@ -21,6 +21,14 @@
 					"odataVersion": "2.0",
 					"localUri": "localService/metadata.xml"
 				}
+			},
+			"ZMATERIALMASTER_CDS": {
+				"uri": "/sap/opu/odata/sap/ZMATERIALMASTER_CDS/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/ZMATERIALMASTER_CDS/metadata.xml"
+				}
 			}
 		}
 	},
@@ -78,12 +86,62 @@
 				},
 				"dataSource": "ZODATA_P_SRV",
 				"preload": true
+			},
+			"SmartTable": {
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"settings": {
+					"defaultOperationMode": "Server",
+					"defaultBindingMode": "OneTime",
+					"defaultCountMode": "Request"
+				},
+				"dataSource": "ZMATERIALMASTER_CDS",
+				"preload": true
 			}
 		},
 		"resources": {
 			"css": [{
 				"uri": "css/style.css"
 			}]
+		},
+		"routing": {
+			"config": {
+				"controlAggregation": "pages",
+				"viewLevel": 1,
+				"routerClass": "sap.m.routing.Router",
+				"controlId": "app",
+				"viewPath": "SAPUI5_P2.view",
+				"transition": "show"
+			},
+			"routes": [{
+				"name": "home",
+				"pattern": "",
+				"titleTarget": "",
+				"greedy": false,
+				"target": ["t1"]
+			}, {
+				"name": "smarttable",
+				"pattern": "smartTable",
+				"titleTarget": "",
+				"greedy": false,
+					"target": ["t2"]
+			}],
+			"targets": {
+				"t1": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearAggregation": true,
+					"viewName": "View1",
+					"title": "HomeView",
+					"viewLevel": 1
+				},
+				"t2": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearAggregation": true,
+					"viewName": "SmartTable",
+					"title": "SmartTable"
+				}
+			}
 		}
 	}
 }

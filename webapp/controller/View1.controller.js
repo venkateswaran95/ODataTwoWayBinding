@@ -1,6 +1,8 @@
 sap.ui.define([
-	"sap/ui/core/mvc/Controller"
-], function(Controller) {
+
+	"./BaseController"
+],
+function(BaseController) {
 	"use strict";
 	
 	var oModel;
@@ -9,32 +11,30 @@ sap.ui.define([
 	var oEmployeeDialog;
 	var oOfflineDialog;
 
-	return Controller.extend("SAPUI5_P2.controller.View1", {
+	return BaseController.extend("SAPUI5_P2.controller.View1", {
 		
 		onInit: function() {
 		
 		if(!this.isOnline()){
+			this.getView().byId("idTable").setVisible(false);
 			oOfflineDialog = this.buildOfflineDialog();
 			oOfflineDialog.open();
 		}
-		oModel = this.getOwnerComponent().getModel();
-		oModel.setUseBatch(false);
-		this.getView().setModel(oModel);
+	//	oModel = this.getOwnerComponent().getModel();
+		oModel = this.getModel();
+	//	oModel.setUseBatch(false);
+	//	this.getView().setModel(oModel);
+		this.setModel(oModel);
 		
 		oEmployeeDialog = this.buildEmpDialog();
 		console.log("Internet Connection: "+ this.isOnline());
 		
-		$(window).bind('beforeunload', function(e) {
-    		var message = "Why are you leaving?";
-    		e.returnValue = message;
-    		return message;
-    	});
+	
 			
 		},
 		
-		isOnline: function(){
-			return (navigator.onLine);
-		},
+	
+
 		
 		buildOfflineDialog: function(){
 			var oView = this.getView();
@@ -196,6 +196,10 @@ sap.ui.define([
 			var oContext = evt.getSource().getBindingContext();
 			sCurrentPath = oContext.getPath();
 			sCurrentEmp = oContext.getProperty("Name");
+		},
+		
+		goSmartTable: function(){
+			this.getRouter().navTo("smarttable");	
 		},
 		
 		onExit: function(){
